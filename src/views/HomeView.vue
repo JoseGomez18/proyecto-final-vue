@@ -1,5 +1,6 @@
 <template>
-  <NavBar/>
+  <!-- <NavBar/> -->
+  <BarraComponent/>
   <HelloWorld />
   <FootComponet />
 </template>
@@ -9,16 +10,18 @@ import { defineComponent } from 'vue';
 
 // Components
 import HelloWorld from '../components/HelloWorld.vue';
-import NavBar from '../components/Navbar.vue'
+// import NavBar from '../components/Navbar.vue'
 import FootComponet from '../components/FootComponet.vue'
+import BarraComponent from '../components/BarraComponent.vue'
 
 export default defineComponent({
   name: 'HomeView',
 
   components: {
     HelloWorld,
-    NavBar,
+    // NavBar,
     FootComponet,
+    BarraComponent,
   },
 });
 </script>
