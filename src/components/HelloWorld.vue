@@ -1,24 +1,11 @@
 <template>
-
-  <v-card
-    class="mx-auto"
-    max-width="500"
-  >
+  <v-card class="mx-auto" max-width="500">
     <v-container fluid>
       <v-row dense>
-        <v-col
-          v-for="card in cards"
-          :key="card.title"
-          :cols="card.flex"
-        >
+        <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
           <v-card>
-            <v-img
-              :src="card.src"
-              class="align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="350px"
-              cover
-            >
+            <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
+              cover>
               <v-card-title class="text-white" v-text="card.title"></v-card-title>
             </v-img>
 
@@ -39,16 +26,26 @@
 </template>
 
 <script>
-  export default {
-    name: "HelloWorld", data: () => ({
-      cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-
-        // { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        // { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-      ],
-    }),
-  }
+import axios from 'axios'
+export default {
+  name: "HelloWorld", data: () => ({
+    resul: "",
+    cards: []
+  }),
+  methods: {
+    async ConGet() {
+      const result = await axios.get('http://localhost:3000/tabla')
+      this.resul = result.data
+      this.cards = this.resul.map(item => ({
+        title: item.titulo,
+        src: item.imagen,
+        flex: 12,
+      }));
+    }
+  },
+  mounted() {
+    // Llama a ConGet cuando el componente se monta
+    this.ConGet();
+  },
+}
 </script>
