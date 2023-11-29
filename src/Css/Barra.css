@@ -40,6 +40,10 @@ h1 {
   padding: 9px;
 }
 
+#perfil {
+  padding: 0 !important;
+}
+
 #container-botones button:hover {
   background: #ecebeb;
   transition: ease .5;
@@ -47,6 +51,7 @@ h1 {
 
 .fas {
   margin-right: 8px;
+  font-size: 19px;
 }
 
 #img {
@@ -59,4 +64,12 @@ h1 {
 a {
   text-decoration: none;
   color: black;
+}
+
+.k {
+  margin-right: 8px;
+  width: 35px;
+  height: 33px;
+  object-fit: cover;
+  border-radius: 50%;
 }

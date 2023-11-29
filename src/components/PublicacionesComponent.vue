@@ -3,6 +3,10 @@
     <v-container fluid>
       <v-row dense>
         <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+          <div class="header-publi">
+            <img class="k" :src="fotico" alt="Foto de perfil">
+            <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
+          </div>
           <v-card>
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
               cover>
@@ -25,13 +29,25 @@
   </v-card>
 </template>
 
+<style src="../Css/Publicaciones.css"></style>
+
 <script>
 import axios from 'axios'
+
 export default {
-  name: "HelloWorld", data: () => ({
+  name: "PublicacionesComponent", data: () => ({
     resul: "",
     cards: []
   }),
+  computed: {
+    fotico() {
+      console.log('Fotico en Vuex:', this.$store.getters.obtenerFotico);
+      return this.$store.getters.obtenerFotico;
+    },
+    nombre() {
+      return this.$store.getters.obtenerNombre;
+    }
+  },
   methods: {
     async ConGet() {
       const result = await axios.get('http://localhost:3000/tabla')
@@ -39,6 +55,7 @@ export default {
       this.cards = this.resul.map(item => ({
         title: item.titulo,
         src: item.imagen,
+        fecha: item.fecha.substring(0, 10),
         flex: 12,
       }));
     }
