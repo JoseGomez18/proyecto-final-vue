@@ -1,21 +1,18 @@
 <template>
-  <BarraComponent />
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <CrearComponent />
 </template>
 
 <script>
 
 // Components
 // import NavBar from '../components/Navbar.vue'
-import BarraComponent from '../components/BarraComponent.vue'
 
+import CrearComponent from '../components/CrearComponent.vue'
 export default ({
   name: 'AboutView',
 
   components: {
-    BarraComponent,
+    CrearComponent,
   },
 });
 </script>

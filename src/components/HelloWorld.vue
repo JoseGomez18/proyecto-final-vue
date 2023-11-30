@@ -19,7 +19,7 @@
               <v-btn size="small" color="surface-variant" variant="text" icon="mdi-share-variant"></v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
+        </v-col>  
       </v-row>
     </v-container>
   </v-card>
