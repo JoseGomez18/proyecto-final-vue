@@ -2,10 +2,12 @@
 import { createStore } from 'vuex';
 
 const storedFotico = localStorage.getItem('fotico');
+const storedValidado = localStorage.getItem('validado');
+const storedNombre = localStorage.getItem('nombre');
 export default createStore({
     state: {
-        nombre: '',
-        validado: false,
+        nombre: storedNombre || '',
+        validado: storedValidado || false,
         fotico: storedFotico || ''
     },
     getters: {
@@ -29,9 +31,11 @@ export default createStore({
         },
         actualizarValidado(state, nuevoValidado) {
             state.validado = nuevoValidado
+            localStorage.setItem('validado', nuevoValidado);
         },
         actualizarNombre(state, nuevoNombre) {
             console.log('Mutación llamada. Nuevo nombre:', nuevoNombre);
+            localStorage.setItem('nombre', nuevoNombre);
             state.nombre = nuevoNombre
         }
     },

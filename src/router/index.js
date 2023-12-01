@@ -9,10 +9,13 @@ const routes = [
     name: 'home',
     component: HomeView,
     beforeEnter: (to, from, next) => {
-      if (store.getters.obtenerValidacion) {
+      const isUserAuthenticated = store.getters.obtenerValidacion;
+
+      if (isUserAuthenticated == "true") {
         next();
       } else {
-        next('/login');
+        console.log('Redirigiendo a /login');
+        next({ name: 'login' });
       }
     }
   },

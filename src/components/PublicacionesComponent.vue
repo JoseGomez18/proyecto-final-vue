@@ -2,10 +2,11 @@
   <v-card class="mx-auto" max-width="500">
     <v-container fluid>
       <v-row dense>
-        <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+        <v-col v-for="card in   cards  " :key="card.title" :cols="card.flex">
           <div class="header-publi">
             <img class="k" :src="fotico" alt="Foto de perfil">
             <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
+            <button @click="eliminar(card.id)">Eliminar</button>
           </div>
           <v-card>
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
@@ -53,11 +54,16 @@ export default {
       const result = await axios.get('http://localhost:3000/tabla')
       this.resul = result.data
       this.cards = this.resul.map(item => ({
+        id: item.id,
         title: item.titulo,
-        src: item.imagen,
+        src: `http://localhost:3000${item.imagen}`,
         fecha: item.fecha.substring(0, 10),
         flex: 12,
       }));
+    },
+    async eliminar(id) {
+      await axios.delete(`http://localhost:3000/eliminar/${id}`)
+      location.reload()
     }
   },
   mounted() {
