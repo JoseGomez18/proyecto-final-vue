@@ -6,7 +6,13 @@
           <div class="header-publi">
             <img class="k" :src="fotico" alt="Foto de perfil">
             <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
-            <button @click="eliminar(card.id)">Eliminar</button>
+          <div class="dropdown">
+               <button class="dropbtn">&#10247;</button>
+          <div class="dropdown-content">
+            <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
+            <a href="#">Modificar</a>
+            </div>
+           </div>
           </div>
           <v-card>
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
@@ -18,10 +24,6 @@
               <v-spacer></v-spacer>
 
               <v-btn size="small" color="surface-variant" variant="text" icon="mdi-heart"></v-btn>
-
-              <v-btn size="small" color="surface-variant" variant="text" icon="mdi-bookmark"></v-btn>
-
-              <v-btn size="small" color="surface-variant" variant="text" icon="mdi-share-variant"></v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
