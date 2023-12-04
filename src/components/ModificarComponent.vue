@@ -1,11 +1,11 @@
 <template>
     <v-container id="buttonForm">
         <!-- <button class="botonModi" @click="showForm = true">Modificar</button> -->
-        <button class="botonModi" @click="showForm = !showForm">Modificar</button>
+        <button class="botonModi" @click.stop="showForm = !showForm">Modificar</button>
         <!-- Botón para mostrar el formulario -->
 
         <!-- Formulario -->
-        <v-dialog v-model="localShowForm" max-width="600">
+        <v-dialog v-model="showForm" max-width="600">
             <v-card class="card">
                 <v-card-title class="title">Modificar Publicación</v-card-title>
 
@@ -53,7 +53,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            localShowForm: false, // Variable para controlar la visibilidad del formulario
+            showForm: false, // Variable para controlar la visibilidad del formulario
             titulo: '',
             foto: '',
             confirmation: false,
@@ -100,7 +100,7 @@ export default {
                 const response = await axios.patch(`http://localhost:3000/modificar/${this.id}`, formData)
 
                 // Después de enviar, cierra el formulario
-                this.localShowForm = false;
+                this.showForm = false;
                 location.reload()
                 return response
             }
@@ -109,7 +109,7 @@ export default {
             // Aquí puedes manejar la lógica para cancelar el formulario
             console.log('Creación de publicación cancelada');
             // Cierra el formulario al cancelar
-            this.localShowForm = false;
+            this.showForm = false;
         },
     },
     props: {
@@ -134,10 +134,11 @@ export default {
     border-radius: 8px;
 }
 
-.botonModi{
+.botonModi {
     text-align: center;
     padding-left: 8px !important;
 }
+
 .error {
     color: rgb(176, 0, 32);
     font-size: 12px;

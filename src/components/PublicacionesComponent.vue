@@ -6,18 +6,18 @@
           <div class="header-publi">
             <img class="k" :src="fotico" alt="Foto de perfil">
             <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
-          <v-menu>
-            <template v-slot:activator="{ props }">
-              <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
-            </template>
+            <v-menu>
+              <template v-slot:activator="{ props }">
+                <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
+              </template>
 
-            <v-list>
-              <v-list-item>
+              <v-list>
+
                 <button class="boton-publi" @click="eliminar(card.id)">Eliminar</button>
                 <ModificarComponent class="boton-publi" :idd="card.id" />
-              </v-list-item>
-            </v-list>
-          </v-menu>
+
+              </v-list>
+            </v-menu>
           </div>
           <v-card>
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
@@ -49,9 +49,9 @@ export default {
     cards: [],
     mostrarElement: false,
     items: [
-        { title: 'Eliminar', methotd:"eliminar" },
-        { title: 'Modificar', methotd:"dfdf" },
-  ],
+      { title: 'Eliminar', methotd: "eliminar" },
+      { title: 'Modificar', methotd: "dfdf" },
+    ],
   }),
   computed: {
     fotico() {
@@ -67,7 +67,7 @@ export default {
       this.mostrarElement = !this.mostrarElement;
     },
 
-    hola(){
+    hola() {
       console.log("pene")
     },
 
