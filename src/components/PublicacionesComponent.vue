@@ -6,12 +6,12 @@
           <div class="header-publi">
             <img class="k" :src="fotico" alt="Foto de perfil">
             <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
-            <div class="dropdown">
-              <button class="dropbtn">&#10247;</button>
-              <div class="dropdown-content">
-                <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
-                <a href="#">Modificar</a>
-              </div>
+            <div class="bton-desple">
+              <button @click="alternarVistaa" class="dropbtn">&#10247;</button>
+            </div>
+            <div class="contenedor-boton" v-show="mostrarElement">
+              <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
+              <button class="boton-elminarP" @click="eliminar(card.id)">modificar</button>
             </div>
           </div>
           <v-card>
@@ -40,7 +40,8 @@ import axios from 'axios'
 export default {
   name: "PublicacionesComponent", data: () => ({
     resul: "",
-    cards: []
+    cards: [],
+    mostrarElement: false
   }),
   computed: {
     fotico() {
@@ -51,6 +52,11 @@ export default {
     }
   },
   methods: {
+
+    alternarVistaa(){
+      this.mostrarElement = !this.mostrarElement;
+    },
+
     async consultaPublicaciones() {
       const result = await axios.get('http://localhost:3000/tabla')
       this.resul = result.data
