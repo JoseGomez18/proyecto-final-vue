@@ -6,7 +6,7 @@
     <img class="perfil-foto" :src="fotico" alt="Foto de perfil">
     <p>{{ nombre }}</p>
     <p>{{ correo }}</p>
-    <button @click="cerrar"><i class="fas fa-light fa-square-plus"></i>cerrar sesion</button>
+    <button @click="cerrar"><i class="fas fa-solid fa-circle-xmark"></i>cerrar sesion</button>
   </div>
 </template>
 

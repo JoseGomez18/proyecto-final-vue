@@ -11,7 +11,7 @@
             </div>
             <div class="contenedor-boton" v-show="mostrarElement">
               <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
-              <button class="boton-elminarP" @click="eliminar(card.id)">modificar</button>
+              <ModificarComponent :idd="card.id" />
             </div>
           </div>
           <v-card>
