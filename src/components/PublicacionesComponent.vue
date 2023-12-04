@@ -10,7 +10,7 @@
               <button class="dropbtn">&#10247;</button>
               <div class="dropdown-content">
                 <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
-                <a href="#">Modificar</a>
+                <ModificarComponent :idd="card.id" />
               </div>
             </div>
           </div>
@@ -36,6 +36,7 @@
 
 <script>
 import axios from 'axios'
+import ModificarComponent from './ModificarComponent.vue';
 
 export default {
   name: "PublicacionesComponent", data: () => ({
@@ -71,5 +72,8 @@ export default {
     // Llama a consultaPublicaciones cuando el componente se monta
     this.consultaPublicaciones();
   },
+  components: {
+    ModificarComponent
+  }
 }
 </script>

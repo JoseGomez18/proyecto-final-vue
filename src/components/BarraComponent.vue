@@ -5,7 +5,7 @@
     </div>
     <div id="container-botones">
       <a href="/">
-        <button><i class="fas fa-home"></i>Home</button>
+        <button><i class="fas fa-solid fa-circle-xmark"></i>Home</button>
       </a>
       <CrearComponent />
       <a href="">
