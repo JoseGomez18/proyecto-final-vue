@@ -6,13 +6,18 @@
           <div class="header-publi">
             <img class="k" :src="fotico" alt="Foto de perfil">
             <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
-            <div class="bton-desple">
-              <button @click="alternarVistaa" class="dropbtn">&#10247;</button>
-            </div>
-            <div class="contenedor-boton" v-show="mostrarElement">
-              <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
-              <ModificarComponent :idd="card.id" />
-            </div>
+          <v-menu>
+            <template v-slot:activator="{ props }">
+              <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item>
+                <button class="boton-publi" @click="eliminar(card.id)">Eliminar</button>
+                <ModificarComponent class="boton-publi" :idd="card.id" />
+              </v-list-item>
+            </v-list>
+          </v-menu>
           </div>
           <v-card>
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
@@ -42,7 +47,11 @@ export default {
   name: "PublicacionesComponent", data: () => ({
     resul: "",
     cards: [],
-    mostrarElement: false
+    mostrarElement: false,
+    items: [
+        { title: 'Eliminar', methotd:"eliminar" },
+        { title: 'Modificar', methotd:"dfdf" },
+  ],
   }),
   computed: {
     fotico() {
@@ -56,6 +65,10 @@ export default {
 
     alternarVistaa() {
       this.mostrarElement = !this.mostrarElement;
+    },
+
+    hola(){
+      console.log("pene")
     },
 
     async consultaPublicaciones() {
