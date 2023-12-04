@@ -6,13 +6,13 @@
           <div class="header-publi">
             <img class="k" :src="fotico" alt="Foto de perfil">
             <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
-          <div class="dropdown">
-               <button class="dropbtn">&#10247;</button>
-          <div class="dropdown-content">
-            <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
-            <a href="#">Modificar</a>
+            <div class="dropdown">
+              <button class="dropbtn">&#10247;</button>
+              <div class="dropdown-content">
+                <button class="boton-elminarP" @click="eliminar(card.id)">Eliminar</button>
+                <a href="#">Modificar</a>
+              </div>
             </div>
-           </div>
           </div>
           <v-card>
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
@@ -44,7 +44,6 @@ export default {
   }),
   computed: {
     fotico() {
-      console.log('Fotico en Vuex:', this.$store.getters.obtenerFotico);
       return this.$store.getters.obtenerFotico;
     },
     nombre() {
@@ -52,7 +51,7 @@ export default {
     }
   },
   methods: {
-    async ConGet() {
+    async consultaPublicaciones() {
       const result = await axios.get('http://localhost:3000/tabla')
       this.resul = result.data
       this.cards = this.resul.map(item => ({
@@ -69,8 +68,8 @@ export default {
     }
   },
   mounted() {
-    // Llama a ConGet cuando el componente se monta
-    this.ConGet();
+    // Llama a consultaPublicaciones cuando el componente se monta
+    this.consultaPublicaciones();
   },
 }
 </script>

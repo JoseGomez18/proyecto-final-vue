@@ -14,7 +14,6 @@ const routes = [
       if (isUserAuthenticated == "true") {
         next();
       } else {
-        console.log('Redirigiendo a /login');
         next({ name: 'login' });
       }
     }

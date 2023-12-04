@@ -9,8 +9,7 @@
       </a>
       <CrearComponent />
       <a href="">
-      <button @click="perfil" > <img class="k" :src="fotico" alt="Foto de perfil">Perfil</button>
-      <PerfilComponent/>
+        <PerfilComponent />
       </a>
     </div>
   </section>
@@ -23,16 +22,9 @@ import PerfilComponent from './PerfilComponent.vue';
 
 export default {
   name: "BarraComponent",
-  computed: {
-    fotico() {
-      console.log('Fotico en Vuex:', this.$store.getters.obtenerFotico);
-      return this.$store.getters.obtenerFotico;
-    }
-  },
   components: {
     CrearComponent,
     PerfilComponent
-}
-
+  }
 }
 </script>

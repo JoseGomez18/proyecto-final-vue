@@ -96,12 +96,13 @@ export default {
                 this.$store.commit('actualizarFotico', `http://localhost:3000${responsee.data.foto}`);
                 this.$store.commit('actualizarValidado', responsee.data.validacion);
                 this.$store.commit('actualizarNombre', responsee.data.nombre);
+                this.$store.commit('actualizarCorreo', responsee.data.correo);
 
                 //redireccionar al home
                 this.$router.push('/')
             } else {
                 this.error = responsee.data.message
-                console.log(responsee)
+
                 // reiniciar inputs
                 this.correoL = ""
                 this.contraL = ""

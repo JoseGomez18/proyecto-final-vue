@@ -1,5 +1,7 @@
 <template>
-  <div class="perfil-barra">
+  <button @click.prevent="perfil"> <img class="k" :src="fotico" alt="Foto de perfil">Perfil</button>
+
+  <div v-show="showPerfil" class="perfil-barra">
     <!-- Contenido del perfil -->
     <img class="perfil-foto" :src="fotico" alt="Foto de perfil">
     <p>{{ nombre }}</p>
@@ -12,21 +14,28 @@
 export default {
   data() {
     return {
-      nombre: "Nombre de Usuario", // Reemplaza con tu lógica para obtener el nombre
-      correo: "usuario@ejemplo.com" // Reemplaza con tu lógica para obtener el correo
-    };
+      showPerfil: false
+    }
   },
   computed: {
     fotico() {
       return this.$store.getters.obtenerFotico;
+    },
+    nombre() {
+      return this.$store.getters.obtenerNombre;
+    },
+    correo() {
+      return this.$store.getters.obtenerCorreo;
     }
   },
   methods: {
     cerrar() {
-      console.log(this.$store.getters.obtenerValidado)
       localStorage.removeItem('validado');
       this.$store.commit('actualizarValidado', "false");
       this.$router.push('/login');
+    },
+    perfil() {
+      this.showPerfil = !this.showPerfil
     }
   }
 };
@@ -35,9 +44,10 @@ export default {
 <style scoped>
 /* Estilos específicos para la barra de perfil si es necesario */
 .perfil-barra {
+  transition: all 0.3s ease-in-out;
   width: 260px;
   height: 100%;
-  background-color: #f0f0f0;
+  background-color: #f0f0f075;
   position: fixed;
   gap: 15px;
   top: 0;
@@ -46,6 +56,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  border-left: 1px solid #dbdbdb;
 }
 
 .perfil-foto {
@@ -55,5 +66,4 @@ export default {
   margin-bottom: 10px;
   object-fit: cover;
 }
-
 </style>

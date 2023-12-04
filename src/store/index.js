@@ -4,9 +4,12 @@ import { createStore } from 'vuex';
 const storedFotico = localStorage.getItem('fotico');
 const storedValidado = localStorage.getItem('validado');
 const storedNombre = localStorage.getItem('nombre');
+const storedCorreo = localStorage.getItem('correo');
+
 export default createStore({
     state: {
         nombre: storedNombre || '',
+        correo: storedCorreo || '',
         validado: storedValidado || false,
         fotico: storedFotico || ''
     },
@@ -18,15 +21,15 @@ export default createStore({
             return state.validado
         },
         obtenerNombre(state) {
-            console.log('Getter obtenerNombre:', state.nombre);
             return state.nombre
+        },
+        obtenerCorreo(state) {
+            return state.correo
         }
     },
     mutations: {
         actualizarFotico(state, nuevoFotico) {
-            console.log('Mutación llamada. Nuevo fotico:', nuevoFotico);
             state.fotico = nuevoFotico;
-            console.log(state.fotico)
             localStorage.setItem('fotico', nuevoFotico);
         },
         actualizarValidado(state, nuevoValidado) {
@@ -34,9 +37,12 @@ export default createStore({
             localStorage.setItem('validado', nuevoValidado);
         },
         actualizarNombre(state, nuevoNombre) {
-            console.log('Mutación llamada. Nuevo nombre:', nuevoNombre);
             localStorage.setItem('nombre', nuevoNombre);
             state.nombre = nuevoNombre
+        },
+        actualizarCorreo(state, nuevoCorreo) {
+            localStorage.setItem('correo', nuevoCorreo);
+            state.correo = nuevoCorreo
         }
     },
     actions: {
