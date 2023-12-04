@@ -1,7 +1,7 @@
 <template>
   <section id="container-barra">
     <div id="container-titulo">
-      <h1><i class="fa-solid fa-bolt fa-beat" style="color: #000000;"></i>Flashpost</h1>
+      <h1><i class="ic fa-solid fa-bolt fa-beat" style="color: #000000;"></i>Flashpost</h1>
     </div>
     <div id="container-botones">
       <a href="/">

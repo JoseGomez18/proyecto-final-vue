@@ -1,12 +1,11 @@
 <template>
-  <button @click.prevent="perfil"> <img class="k" :src="fotico" alt="Foto de perfil">Perfil</button>
-
+  <button id="f" @click.prevent="perfil"> <img class="k" :src="fotico" alt="Foto de perfil">Perfil</button>
   <div v-show="showPerfil" class="perfil-barra">
     <!-- Contenido del perfil -->
     <img class="perfil-foto" :src="fotico" alt="Foto de perfil">
     <p>{{ nombre }}</p>
     <p>{{ correo }}</p>
-    <button @click="cerrar"><i class="fas fa-solid fa-circle-xmark"></i>cerrar sesion</button>
+    <button @click="cerrar"><i class="fas fa-sign-out-alt"></i>cerrar sesion</button>
   </div>
 </template>
 
@@ -43,8 +42,12 @@ export default {
 
 <style scoped>
 /* Estilos específicos para la barra de perfil si es necesario */
+
+#f {
+  padding: 2px !important;
+}
+
 .perfil-barra {
-  transition: all 0.3s ease-in-out;
   width: 260px;
   height: 100%;
   background-color: #f0f0f075;

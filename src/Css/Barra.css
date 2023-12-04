@@ -73,3 +73,7 @@ a {
   object-fit: cover;
   border-radius: 50%;
 }
+
+.ic {
+  margin-right: 6px;
+}
