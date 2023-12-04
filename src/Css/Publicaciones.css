@@ -10,7 +10,7 @@
  
 .boton-elminarP{
     background: red;
-    width: 65px;
+    width: 80px;
     height: 30px;
     border-radius: 2px;
 }
@@ -32,6 +32,16 @@
     font-weight: 500;
 } 
 
+.contenedor-boton{
+  height: 20px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  background: purple !important;
+  position: relative;
+  gap: 5px;
+}
 /* Estilos del botón desplegable */
 .dropbtn {
     background-color: #fff;
@@ -42,7 +52,7 @@
   }
   
   /* Posición del botón desplegable */
-  .dropdown {
+  .bton-desple {
     position: relative;
     display: inline-block;
   }
