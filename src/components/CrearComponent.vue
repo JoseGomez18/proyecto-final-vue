@@ -1,7 +1,7 @@
 <template>
     <v-container id="buttonForm">
-        <button @click="showForm = true"><i class="fas fa-light fa-square-plus"></i>Crear</button>
         <!-- Botón para mostrar el formulario -->
+        <button @click="showForm = true"><i class="fas fa-light fa-square-plus"></i>Crear</button>
 
         <!-- Formulario -->
         <v-dialog v-model="showForm" max-width="600">
@@ -39,14 +39,16 @@
                 </v-card-text>
 
                 <v-card-actions>
-                    <v-btn @click="cancel" color="error">Cancelar</v-btn>
-                    <v-btn @click="createPost" :disabled="!confirmation" color="success">Crear</v-btn>
+                    <v-btn class="botones" @click="cancel" color="error">Cancelar</v-btn>
+                    <v-btn class="botones" @click="createPost" :disabled="!confirmation" color="success">Crear</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
     </v-container>
 </template>
-  
+
+<style src="../Css/CrearComponent.css"></style>
+
 <script>
 import axios from 'axios';
 export default {
@@ -63,6 +65,7 @@ export default {
         };
     },
     methods: {
+        // encargado de manejar cambios en el input de tipo archivo (file input) 
         handleFileChange(event) {
             this.foto = event.target.files[0];
 
@@ -99,13 +102,12 @@ export default {
 
                 // Después de enviar, cierra el formulario
                 this.showForm = false;
+                // recarga la pagina
                 location.reload();
                 return response
             }
         },
         cancel() {
-            // Aquí puedes manejar la lógica para cancelar el formulario
-            console.log('Creación de publicación cancelada');
             // Cierra el formulario al cancelar
             this.showForm = false;
         },
@@ -113,35 +115,3 @@ export default {
 };
 </script>
   
-<style scoped>
-#buttonForm {
-    padding: 0px !important;
-}
-
-.preview {
-    object-fit: cover;
-    width: 251px;
-    height: 167px;
-    border-radius: 8px;
-}
-
-.error {
-    color: rgb(176, 0, 32);
-    font-size: 12px;
-    font-weight: 400;
-    font-family: Poppins, sans-serif;
-    padding-left: 7px;
-}
-
-.card {
-    border-radius: 12px !important;
-}
-
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #262626;
-    /* Color de texto de Instagram */
-    margin-bottom: 20px;
-}
-</style>

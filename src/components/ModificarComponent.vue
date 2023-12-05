@@ -1,8 +1,7 @@
 <template>
     <v-container id="buttonForm">
-        <!-- <button class="botonModi" @click="showForm = true">Modificar</button> -->
-        <button class="botonModi" @click.stop="showForm = !showForm">Modificar</button>
         <!-- Botón para mostrar el formulario -->
+        <button class="botonModi" @click.stop="showForm = !showForm">Modificar</button>
 
         <!-- Formulario -->
         <v-dialog v-model="showForm" max-width="600">
@@ -77,25 +76,23 @@ export default {
             }
         },
         validate() {
-            if (this.titulo == '') {
-                this.validaciónTitulo = "Escribe un titulo"
-                return false
-            }
-            if (this.titulo.length < 3 || this.titulo.length > 100) {
-                this.validaciónTitulo = "El titulo debe tener minimo 3 caracteres y maximo 100"
-                return false
-            }
-            if (this.foto == '') {
-                this.validaciónFoto = "Escoge una imagen"
-                return false
+            if (this.titulo) {
+                if (this.titulo.length < 3 || this.titulo.length > 100) {
+                    this.validaciónTitulo = "El titulo debe tener minimo 3 caracteres y maximo 100"
+                    return false
+                }
             }
             return true
         },
         async modificatePost() {
             if (this.validate()) {
                 const formData = new FormData();
-                formData.append('titulo', this.titulo);
-                formData.append('foto', this.foto);
+                if (this.titulo) {
+                    formData.append('titulo', this.titulo);
+                }
+                if (this.foto) {
+                    formData.append('foto', this.foto);
+                }
 
                 const response = await axios.patch(`http://localhost:3000/modificar/${this.id}`, formData)
 
@@ -106,8 +103,6 @@ export default {
             }
         },
         cancel() {
-            // Aquí puedes manejar la lógica para cancelar el formulario
-            console.log('Creación de publicación cancelada');
             // Cierra el formulario al cancelar
             this.showForm = false;
         },

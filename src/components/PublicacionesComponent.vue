@@ -1,25 +1,30 @@
-<template>
-  <v-card class="mx-auto" max-width="500">
+<template >
+  <v-card class="contenedor-publis mx-auto" max-width="500">
     <v-container fluid>
       <v-row dense>
         <v-col v-for="card in   cards  " :key="card.title" :cols="card.flex">
           <div class="header-publi">
-            <img class="k" :src="fotico" alt="Foto de perfil">
-            <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
-              </template>
+            <div>
+              <img class="k" :src="fotico" alt="Foto de perfil">
+              <h2> <span>{{ nombre }}</span> <span>{{ card.fecha }}</span></h2>
+            </div>
+            <div>
+              <v-menu>
+                <template v-slot:activator="{ props }">
+                  <v-btn class="icon" icon="mdi-dots-vertical" v-bind="props"></v-btn>
+                </template>
 
-              <v-list>
+                <v-list>
 
-                <button class="boton-publi" @click="eliminar(card.id)">Eliminar</button>
-                <ModificarComponent class="boton-publi" :idd="card.id" />
+                  <button class="boton-publi" @click="eliminar(card.id)">Eliminar</button>
+                  <ModificarComponent class="boton-publi" :idd="card.id" />
 
-              </v-list>
-            </v-menu>
+                </v-list>
+              </v-menu>
+            </div>
+
           </div>
-          <v-card>
+          <v-card class="prueba">
             <v-img :src="card.src" class="align-end" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="350px"
               cover>
               <v-card-title class="text-white" v-text="card.title"></v-card-title>
@@ -45,13 +50,7 @@ import ModificarComponent from './ModificarComponent.vue';
 
 export default {
   name: "PublicacionesComponent", data: () => ({
-    resul: "",
-    cards: [],
-    mostrarElement: false,
-    items: [
-      { title: 'Eliminar', methotd: "eliminar" },
-      { title: 'Modificar', methotd: "dfdf" },
-    ],
+    cards: []
   }),
   computed: {
     fotico() {
@@ -62,13 +61,8 @@ export default {
     }
   },
   methods: {
-
     alternarVistaa() {
       this.mostrarElement = !this.mostrarElement;
-    },
-
-    hola() {
-      console.log("pene")
     },
 
     async consultaPublicaciones() {
@@ -82,6 +76,7 @@ export default {
         flex: 12,
       }));
     },
+
     async eliminar(id) {
       await axios.delete(`http://localhost:3000/eliminar/${id}`)
       location.reload()

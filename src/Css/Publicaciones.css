@@ -1,18 +1,41 @@
+.contenedor-publis,
+.prueba {
+    background-color: black;
+}
+
 .header-publi {
     margin-top: 16px;
     margin-bottom: 6px;
     display: flex;
     gap: 8px;
     align-items: center;
-    justify-content: space-around;
-    background-color: rgb(241, 240, 238);
+    justify-content: space-between;
+    padding-left: 8px;
+    /* oscuro */
+
+    background-color: black;
+    color: white;
+}
+
+.header-publi div:nth-child(1) {
+    display: flex;
+    align-items: center;
 }
 
 
-.boton-publi{
+.boton-publi {
     width: 90px;
     height: 40px;
     border-radius: 8%;
+}
+
+.boton-publi:nth-child(2) {
+    align-items: center;
+    display: flex;
+}
+
+.boton-publi:hover {
+    background-color: #f2f2f2;
 }
 
 
@@ -31,8 +54,15 @@
 .header-publi h2 span:nth-child(2) {
     font-size: 12px;
     font-weight: 500;
-} 
+}
 
-.botonP{
-  cursor: pointer;
+.botonP {
+    cursor: pointer;
+}
+
+.icon {
+    border: none;
+    /* oscuro */
+    background-color: black;
+    margin-right: 4px;
 }
