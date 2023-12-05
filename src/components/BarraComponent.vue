@@ -16,6 +16,7 @@
 </template>
 
 <style src="../Css/Barra.css"></style>
+
 <script>
 import CrearComponent from './CrearComponent.vue';
 import PerfilComponent from './PerfilComponent.vue';

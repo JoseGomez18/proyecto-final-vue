@@ -1,7 +1,10 @@
 #container-barra {
   font-family: system-ui;
   border-right: 1px solid #dbdbdb;
+  /* oscuro */
   color: black;
+  background-color: white;
+
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -38,6 +41,7 @@ h1 {
   font-weight: 500;
   cursor: pointer;
   padding: 9px;
+  color: black;
 }
 
 #perfil {
@@ -76,4 +80,5 @@ a {
 
 .ic {
   margin-right: 6px;
+  color: black !important;
 }

@@ -3,11 +3,13 @@
   <div v-show="showPerfil" class="perfil-barra">
     <!-- Contenido del perfil -->
     <img class="perfil-foto" :src="fotico" alt="Foto de perfil">
-    <p>{{ nombre }}</p>
-    <p>{{ correo }}</p>
-    <button @click="cerrar"><i class="fas fa-sign-out-alt"></i>cerrar sesion</button>
+    <p id="nombre">{{ nombre }}</p>
+    <p id="correo">{{ correo }}</p>
+    <button id="cerrar" @click="cerrar"><i class="fas fa-sign-out-alt"></i>Cerrar sesion</button>
   </div>
 </template>
+
+<style src="../Css/PerfilComponent.css"></style>
 
 <script>
 export default {
@@ -39,34 +41,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/* Estilos específicos para la barra de perfil si es necesario */
-
-#f {
-  padding: 2px !important;
-}
-
-.perfil-barra {
-  width: 260px;
-  height: 100%;
-  background-color: #f0f0f075;
-  position: fixed;
-  gap: 15px;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border-left: 1px solid #dbdbdb;
-}
-
-.perfil-foto {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-</style>

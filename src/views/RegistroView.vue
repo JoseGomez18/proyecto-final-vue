@@ -50,9 +50,6 @@
                         <v-file-input class="field" accept="image/png, image/jpeg, image/bmp"
                             placeholder="Escoge una foto de perfil" prepend-icon=""
                             label="Click y escoge una foto de perfil" @change="handleFileChange"></v-file-input>
-                        <!-- <div class="field">
-                            <input type="file" placeholder="foto perfil" @change="handleFileChange" required>
-                        </div> -->
                         <div class="field btn">
                             <div class="btn-layer"></div>
                             <input type="submit" value="Registrar">

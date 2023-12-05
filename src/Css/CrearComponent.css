@@ -1,0 +1,39 @@
+#buttonForm {
+    padding: 0px !important;
+}
+
+.preview {
+    object-fit: cover;
+    width: 251px;
+    height: 167px;
+    border-radius: 8px;
+}
+
+.error {
+    color: rgb(176, 0, 32);
+    font-size: 12px;
+    font-weight: 400;
+    font-family: Poppins, sans-serif;
+    padding-left: 7px;
+}
+
+.card {
+    border-radius: 12px !important;
+    /* oscuro */
+    background-color: white;
+    color: black;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    /* oscuro */
+    color: black;
+    /* Color de texto de Instagram */
+    margin-bottom: 20px;
+}
+
+.botones {
+    font-weight: 800;
+    letter-spacing: 0;
+}
