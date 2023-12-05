@@ -2,8 +2,8 @@
   font-family: system-ui;
   border-right: 1px solid #dbdbdb;
   /* oscuro */
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: white;
 
   display: flex;
   flex-direction: column;
@@ -41,8 +41,7 @@ h1 {
   font-weight: 500;
   cursor: pointer;
   padding: 9px;
-  /* oscuro */
-  color: white;
+  color: black;
 }
 
 #perfil {
@@ -81,6 +80,5 @@ a {
 
 .ic {
   margin-right: 6px;
-  /* oscuro */
-  color: white !important;
+  color: black !important;
 }

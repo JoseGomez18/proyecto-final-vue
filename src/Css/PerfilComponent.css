@@ -5,9 +5,7 @@
 .perfil-barra {
     width: 260px;
     height: 100%;
-    /* oscuro */
-    background-color: black;
-
+    background-color: #f0f0f075;
     position: fixed;
     gap: 15px;
     top: 0;
@@ -28,18 +26,14 @@
 }
 
 #nombre {
-    /* oscuro */
-
-    color: white;
+    color: black;
     font-family: 'Material Design Icons';
     font-size: 25px;
 }
 
 
 #correo {
-    /* oscuro */
-
-    color: white;
+    color: black;
     font-family: 'Material Design Icons';
     font-size: 20px;
 }
